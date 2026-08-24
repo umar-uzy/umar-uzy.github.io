@@ -8,6 +8,12 @@
   --line: #cdd3ce;
   --stamp-green: #3c7a5d;
   --stamp-amber: #b4622b;
+  --accent-teal: #1f5c5a;
+  --deep-teal: #12302e;
+  --deep-teal-alt: #1c443f;
+  --mint: #7fd9bd;
+  --deep-teal-text: #e7f0ee;
+  --deep-teal-text-soft: #9db8b2;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --serif: 'Source Serif 4', Georgia, serif;
 }
@@ -42,8 +48,19 @@ a { color: inherit; }
 /* ---------- Header ---------- */
 
 header.site-head {
-  border-bottom: 1px solid var(--line);
+  background: var(--deep-teal);
   padding: 48px 0 28px;
+  position: relative;
+}
+
+header.site-head::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--deep-teal-alt);
 }
 
 .head-row {
@@ -60,11 +77,11 @@ header.site-head {
   font-size: 22px;
   letter-spacing: -0.02em;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--deep-teal-text);
 }
 
 .site-title span {
-  color: var(--stamp-green);
+  color: var(--mint);
 }
 
 nav.site-nav {
@@ -79,7 +96,7 @@ nav.site-nav {
 
 nav.site-nav a {
   text-decoration: none;
-  color: var(--ink-soft);
+  color: var(--deep-teal-text-soft);
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
   transition: border-color 0.15s ease, color 0.15s ease;
@@ -87,15 +104,15 @@ nav.site-nav a {
 
 nav.site-nav a:hover,
 nav.site-nav a[aria-current="page"] {
-  color: var(--ink);
-  border-color: var(--stamp-green);
+  color: var(--deep-teal-text);
+  border-color: var(--mint);
 }
 
 .tagline {
   margin-top: 10px;
   font-family: var(--mono);
   font-size: 13px;
-  color: var(--ink-soft);
+  color: var(--deep-teal-text-soft);
   letter-spacing: 0.02em;
 }
 
@@ -286,15 +303,34 @@ h1.post-title {
 /* ---------- Footer ---------- */
 
 footer.site-foot {
-  border-top: 1px solid var(--line);
+  background: var(--deep-teal);
   padding: 24px 0 48px;
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--ink-soft);
+  color: var(--deep-teal-text-soft);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
+  position: relative;
+}
+
+footer.site-foot a {
+  color: var(--deep-teal-text);
+}
+
+footer.site-foot a:hover {
+  color: var(--mint);
+}
+
+footer.site-foot::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--deep-teal-alt);
 }
 
 /* ---------- Hub homepage ---------- */
