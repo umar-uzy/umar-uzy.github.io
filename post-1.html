@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What QA taught me about writing better requirements — Umar's Log</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <div class="head-row">
+        <a href="index.html" class="site-title">UMAR_UZY<span>.LOG</span></a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Entries</a>
+        <a href="resume.html">Résumé</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+    <p class="tagline">Notes from testing software and learning to build it — Doha, Qatar.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="post-head">
+    <div class="entry-meta">
+      <span>18 Aug 2026</span>
+      <span class="stamp pass">Verified</span>
+    </div>
+    <h1 class="post-title">What QA taught me about writing better requirements</h1>
+  </div>
+
+  <div class="post-body">
+    <p>Most of the bugs I file aren't really code bugs. By the time something reaches me, the code usually does exactly what it was told to do — the problem is that what it was told to do was never quite right in the first place. The requirement was ambiguous, or it assumed a happy path that doesn't hold up, or it just left a case unmentioned.</p>
+
+    <p>Once I started paying attention to that pattern, I began catching a lot of issues earlier — before a single test case was written, let alone run.</p>
+
+    <h2>Where ambiguity hides</h2>
+
+    <p>A few places I've learned to slow down and ask questions before testing even starts:</p>
+
+    <p><strong>Undefined edge cases.</strong> A requirement that says "the user enters their email" rarely says what happens with a typo, a duplicate, or an empty field. Someone will decide that behaviour eventually — better it's a product decision than whatever the code happens to do by accident.</p>
+
+    <p><strong>Implied state.</strong> Requirements often describe one screen without saying what should already be true to reach it. What if the cart is empty? What if the session expired mid-flow? These aren't edge cases so much as unstated assumptions.</p>
+
+    <p><strong>Words doing too much work.</strong> "The page should load quickly" isn't testable until quickly means something — 200ms, 2 seconds, "before the spinner would look broken." Vague adjectives are where two people can each be confident and still disagree.</p>
+
+    <blockquote>If I can't write a test case for a requirement without guessing, that's not a testing problem — it's a requirement that isn't finished yet.</blockquote>
+
+    <h2>What I do differently now</h2>
+
+    <p>I've started raising these questions during planning rather than saving them for the bug tracker. It's a small shift, but it changes the tone completely — instead of "this is broken," it's "what should happen here?" One is a defect, the other is a design conversation, and the second one is a lot more useful to everyone involved.</p>
+
+    <p>It's also made me a better reader of specs generally, on this blog included — <code>vague adjectives</code> are easy to spot once you're used to hunting for them.</p>
+  </div>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:8px;">
+    <span>&copy; 2026 Umar</span>
+    <span><a href="blog.html">&larr; Back to entries</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
