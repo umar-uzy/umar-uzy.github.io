@@ -25,9 +25,15 @@
 </header>
 
 <main class="wrap">
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="work">Work</button>
+    <button class="filter-tab" data-filter="life">Life</button>
+  </div>
+
   <div class="log">
 
-    <article class="entry">
+    <article class="entry" data-category="work">
       <div class="entry-index">001</div>
       <div class="entry-body">
         <a href="post-1.html" class="entry-title">What QA taught me about writing better requirements</a>
@@ -39,7 +45,7 @@
       </div>
     </article>
 
-    <article class="entry">
+    <article class="entry" data-category="life">
       <div class="entry-index">002</div>
       <div class="entry-body">
         <a href="post-2.html" class="entry-title">Old Doha Port, with Yahya</a>
@@ -51,8 +57,20 @@
       </div>
     </article>
 
-    <article class="entry">
+    <article class="entry" data-category="work">
       <div class="entry-index">003</div>
+      <div class="entry-body">
+        <a href="post-3.html" class="entry-title">What Five Years at Amana Taught Me</a>
+        <div class="entry-meta">
+          <span>24 Aug 2026</span>
+          <span class="stamp pass">Career</span>
+        </div>
+        <p class="entry-excerpt">My first workplace after school, and the place that shaped me the most — what five years there taught me about doing things properly.</p>
+      </div>
+    </article>
+
+    <article class="entry" data-category="work">
+      <div class="entry-index">004</div>
       <div class="entry-body">
         <a href="#" class="entry-title">Setting up my first Playwright CI pipeline</a>
         <div class="entry-meta">
@@ -63,8 +81,8 @@
       </div>
     </article>
 
-    <article class="entry">
-      <div class="entry-index">004</div>
+    <article class="entry" data-category="work">
+      <div class="entry-index">005</div>
       <div class="entry-body">
         <a href="#" class="entry-title">Learning Python as a tester, not a developer</a>
         <div class="entry-meta">
@@ -84,6 +102,27 @@
     <span>Built by hand, not a template</span>
   </div>
 </footer>
+
+<script>
+  const tabs = document.querySelectorAll('.filter-tab');
+  const entries = document.querySelectorAll('.entry');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.dataset.filter;
+      entries.forEach(entry => {
+        if (filter === 'all' || entry.dataset.category === filter) {
+          entry.style.display = '';
+        } else {
+          entry.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
